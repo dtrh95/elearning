@@ -1,4 +1,4 @@
-<header class="container-fluid border-bottom">
+<header class="container-fluid border-bottom" xmlns:th="http://www.thymeleaf.org">
 	<nav class="navbar navbar-expand-sm navbar-light bg-light">
 		<a class="navbar-brand" href="#">Elearning</a>
 		<button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
@@ -13,38 +13,10 @@
 								<i class="fa fa-th"></i>
 								<span class="ml-2">Categories</span>
 							</a>
-							<div class="dropdown-menu">
-								<a class="dropdown-item" href="#">
-									<i class="fa fa-laptop mr-1"></i>
-									<span>Development</span>
-								</a>
-								<a class="dropdown-item" href="#">
-									<i class="fa fa-camera-retro mr-1"></i>
-									<span>Photography</span>
-								</a>
-								<a class="dropdown-item" href="#">
-									<i class="fa fa-bar-chart mr-1"></i>
-									<span>Business</span>
-								</a>
-								<a class="dropdown-item" href="#">
-									<i class="fa fa-desktop mr-1"></i>
-									<span>IT & Software</span>
-								</a>
-								<a class="dropdown-item" href="#">
-									<i class="fa fa-handshake-o mr-1"></i>
-									<span>Marketing</span>
-								</a>
-								<a class="dropdown-item" href="#">
-									<i class="fa fa-music mr-1"></i>
-									<span>Music</span>
-								</a>
-								<a class="dropdown-item" href="#">
-									<i class="fa fa-pencil-square-o mr-1"></i>
-									<span>Design</span>
-								</a>
-								<a class="dropdown-item" href="#">
-									<i class="fa fa-cutlery mr-1"></i>
-									<span>Cooking</span>
+							<div class="dropdown-menu" >
+								<a class="dropdown-item" href="#" th:each="item : ${category}" >
+									<i th:class="${item.icon}"></i>
+									<span th:text="${item.title}"></span>
 								</a>
 							</div>
 						</div>
