@@ -78,157 +78,30 @@
         <div class="col-md-8">
           <h3 class="title">Sale off</h3>
           <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3" th:each="item : ${course}">
               <div class="course">
-                <img th:src="@{/img/html-css.jpg}"/>
-                <h6 class="course-title">The Complete Digital Marketing Course - 12 Courses in 1</h6>
-                <small class="course-content">
-                  Become an ethical hacker that can hack computer systems like black hat hackers and
-                  secure
-                  them like security experts.
-                </small>
+                <img th:src="@{${item.image}}"/>
+                <h6 class="course-title" th:text="${item.title}"></h6>
+                <small class="course-content" th:text="${item.content}"></small>
                 <div class="course-price">
-                  <span>1.200.000 đ</span>
-                  <small>1.600.000 đ</small>
+                  <span th:inline="text">[[${#numbers.formatDecimal(item.promotionPrice, 0, 'COMMA', 0, 'POINT')}]]đ</span>
+                  <small th:inline="text">[[${#numbers.formatDecimal(item.price, 0, 'COMMA', 0, 'POINT')}]]đ</small>
                 </div>
-                <div class="seller-label">Sale 10%</div>
+                <div class="seller-label" th:inline="text">Sale [[${item.discount}]]%</div>
                 <div class="course-overlay">
                   <a href="details.html">
-                    <h6 class="course-title">
-                      The Complete Digital Marketing Course - 12 Courses in 1
-                    </h6>
+                    <h6 class="course-title" th:text="${item.title}"></h6>
                     <div class="course-author">
                       <b>Lê Quang Song</b>
                       <span class="mx-1"> | </span>
-                      <b>Development</b>
+                      <b th:text="${item.category.title}"></b>
                     </div>
                     <div class="course-info">
-                      <span><i class="fa fa-play-circle"></i> 180 lectures</span>
+                      <span><i class="fa fa-play-circle" th:inline="text"> [[${item.lecturesCount}]] lectures</i></span>
                       <span class="mx-1"> | </span>
-                      <span><i class="fa fa-clock-o"></i> 40 hours</span>
+                      <span><i class="fa fa-clock-o" th:inline="text"> [[${item.hourCount}]] hours</i></span>
                     </div>
-                    <small class="course-content">
-                      Become an ethical hacker that can hack computer systems like black hat
-                      hackers and
-                      secure them like security experts.
-                    </small>
-                  </a>
-                  <a href="#" class="btn btn-sm btn-danger text-white w-100">Add to cart</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="course">
-                <img th:src="@{/img/course.jpg}"/>
-                <h6 class="course-title">The Complete Digital Marketing Course - 12 Courses in 1</h6>
-                <small class="course-content">
-                  Become an ethical hacker that can hack computer systems like black hat hackers and
-                  secure
-                  them like security experts.
-                </small>
-                <div class="course-price">
-                  <span>1.200.000 đ</span>
-                  <small>1.600.000 đ</small>
-                </div>
-                <div class="seller-label">Sale 10%</div>
-                <div class="course-overlay">
-                  <a href="details.html">
-                    <h6 class="course-title">
-                      The Complete Digital Marketing Course - 12 Courses in 1
-                    </h6>
-                    <div class="course-author">
-                      <b>Lê Quang Song</b>
-                      <span class="mx-1"> | </span>
-                      <b>Development</b>
-                    </div>
-                    <div class="course-info">
-                      <span><i class="fa fa-play-circle"></i> 180 lectures</span>
-                      <span class="mx-1"> | </span>
-                      <span><i class="fa fa-clock-o"></i> 40 hours</span>
-                    </div>
-                    <small class="course-content">
-                      Become an ethical hacker that can hack computer systems like black hat
-                      hackers and
-                      secure them like security experts.
-                    </small>
-                  </a>
-                  <a href="#" class="btn btn-sm btn-danger text-white w-100">Add to cart</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="course">
-                <img th:src="@{/img/html-css.jpg}"/>
-                <h6 class="course-title">The Complete Digital Marketing Course - 12 Courses in 1</h6>
-                <small class="course-content">
-                  Become an ethical hacker that can hack computer systems like black hat hackers and
-                  secure
-                  them like security experts.
-                </small>
-                <div class="course-price">
-                  <span>1.200.000 đ</span>
-                  <small>1.600.000 đ</small>
-                </div>
-                <div class="seller-label">Sale 10%</div>
-                <div class="course-overlay">
-                  <a href="details.html">
-                    <h6 class="course-title">
-                      The Complete Digital Marketing Course - 12 Courses in 1
-                    </h6>
-                    <div class="course-author">
-                      <b>Lê Quang Song</b>
-                      <span class="mx-1"> | </span>
-                      <b>Development</b>
-                    </div>
-                    <div class="course-info">
-                      <span><i class="fa fa-play-circle"></i> 180 lectures</span>
-                      <span class="mx-1"> | </span>
-                      <span><i class="fa fa-clock-o"></i> 40 hours</span>
-                    </div>
-                    <small class="course-content">
-                      Become an ethical hacker that can hack computer systems like black hat
-                      hackers and
-                      secure them like security experts.
-                    </small>
-                  </a>
-                  <a href="#" class="btn btn-sm btn-danger text-white w-100">Add to cart</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="course">
-                <img th:src="@{/img/html-css.jpg}"/>
-                <h6 class="course-title">The Complete Digital Marketing Course - 12 Courses in 1</h6>
-                <small class="course-content">
-                  Become an ethical hacker that can hack computer systems like black hat hackers and
-                  secure
-                  them like security experts.
-                </small>
-                <div class="course-price">
-                  <span>1.200.000 đ</span>
-                  <small>1.600.000 đ</small>
-                </div>
-                <div class="seller-label">Sale 10%</div>
-                <div class="course-overlay">
-                  <a href="details.html">
-                    <h6 class="course-title">
-                      The Complete Digital Marketing Course - 12 Courses in 1
-                    </h6>
-                    <div class="course-author">
-                      <b>Lê Quang Song</b>
-                      <span class="mx-1"> | </span>
-                      <b>Development</b>
-                    </div>
-                    <div class="course-info">
-                      <span><i class="fa fa-play-circle"></i> 180 lectures</span>
-                      <span class="mx-1"> | </span>
-                      <span><i class="fa fa-clock-o"></i> 40 hours</span>
-                    </div>
-                    <small class="course-content">
-                      Become an ethical hacker that can hack computer systems like black hat
-                      hackers and
-                      secure them like security experts.
-                    </small>
+                    <small class="course-content" th:text="${item.content}"></small>
                   </a>
                   <a href="#" class="btn btn-sm btn-danger text-white w-100">Add to cart</a>
                 </div>

@@ -1,29 +1,29 @@
 package com.myclass.entity;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
-@Table(name = "categories")
-public class Category {
+@Table(name = "targets")
+public class Target {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
 
   private String title;
 
-  private String icon;
+  private int courseId;
 
-  @OneToMany(fetch = FetchType.LAZY)
-  List<Course> courses;
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "category_id", insertable = false, updatable = false)
+  private Category category;
 
-  public Category(int id, String title, String icon) {
+  public Target(int id, String title, int courseId) {
     this.id = id;
     this.title = title;
-    this.icon = icon;
+    this.courseId = category.getId();
   }
 
-  public Category() {
+  public Target() {
   }
 
   public int getId() {
@@ -42,11 +42,11 @@ public class Category {
     this.title = title;
   }
 
-  public String getIcon() {
-    return icon;
+  public int getCourseId() {
+    return courseId;
   }
 
-  public void setIcon(String icon) {
-    this.icon = icon;
+  public void setCourseId(int courseId) {
+    this.courseId = courseId;
   }
 }

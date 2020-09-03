@@ -1,56 +1,26 @@
-package com.myclass.entity;
+package com.myclass.dto;
 
-import org.hibernate.annotations.GeneratorType;
+import com.myclass.entity.Category;
 
-import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.List;
 
-@Entity
-@Table(name = "courses")
-public class Course {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class CourseDto {
   private int id;
-
   private String title;
-
   private String image;
-
-  @Column(name = "letures_count")
   private int lecturesCount;
-
-  @Column(name = "hour_count")
   private int hourCount;
-
-  @Column(name = "view_count")
   private int viewCount;
-
   private int price;
-
   private int discount;
-
-  @Column(name = "promotion_price")
   private int promotionPrice;
-
   private String description;
-
   private String content;
-
-  @Column(name = "category_id")
   private int categoryId;
-
-  @Column(name = "last_update")
   private Timestamp lastUpdate;
-
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "category_id", insertable = false, updatable = false)
   private Category category;
 
-  @OneToMany(fetch = FetchType.LAZY)
-  List<Target> targets;
-
-  public Course(
+  public CourseDto(
     int id,
     String title,
     String image,
@@ -63,7 +33,8 @@ public class Course {
     String description,
     String content,
     int categoryId,
-    Timestamp lastUpdate
+    Timestamp lastUpdate,
+    Category category
   ) {
     this.id = id;
     this.title = title;
@@ -78,9 +49,10 @@ public class Course {
     this.content = content;
     this.categoryId = categoryId;
     this.lastUpdate = lastUpdate;
+    this.category = category;
   }
 
-  public Course() {
+  public CourseDto(int id, String title, String image, int lecturesCount, int hourCount, int viewCount, int price, int discount, int promotionPrice, String description, String itemDescription, String content, int categoryId, java.sql.Timestamp lastUpdate, Category category) {
   }
 
   public int getId() {
@@ -190,16 +162,7 @@ public class Course {
   public Category getCategory() {
     return category;
   }
-
-  public void setCategory(Category category) {
-    this.category = category;
-  }
-
-  public List<Target> getTargets() {
-    return targets;
-  }
-
-  public void setTargets(List<Target> targets) {
-    this.targets = targets;
-  }
 }
+
+
+
