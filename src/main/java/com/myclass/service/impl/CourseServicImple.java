@@ -7,10 +7,12 @@ import com.myclass.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Transactional(rollbackOn = Exception.class)
 public class CourseServicImple implements CourseService {
   @Autowired
   CourseRepository courseRepository;
@@ -37,5 +39,27 @@ public class CourseServicImple implements CourseService {
       ));
     }
     return list;
+  }
+
+  @Override
+  public CourseDto findById(int id) {
+    Course course = courseRepository.findById(id).get();
+    return new CourseDto(
+      course.getId(),
+      course.getTitle(),
+      course.getImage(),
+      course.getLecturesCount(),
+      course.getHourCount(),
+      course.getViewCount(),
+      course.getPrice(),
+      course.getDiscount(),
+      course.getPromotionPrice(),
+      course.getDescription(),
+      course.getDescription(),
+      course.getContent(),
+      course.getCategoryId(),
+      course.getLastUpdate(),
+      course.getCategory()
+    );
   }
 }
