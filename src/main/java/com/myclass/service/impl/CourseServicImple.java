@@ -16,6 +16,7 @@ import java.util.List;
 public class CourseServicImple implements CourseService {
   @Autowired
   CourseRepository courseRepository;
+
   @Override
   public List<CourseDto> findAll() {
     List<CourseDto> list = new ArrayList<>();
@@ -54,7 +55,6 @@ public class CourseServicImple implements CourseService {
       course.getPrice(),
       course.getDiscount(),
       course.getPromotionPrice(),
-      course.getDescription(),
       course.getDescription(),
       course.getContent(),
       course.getCategoryId(),

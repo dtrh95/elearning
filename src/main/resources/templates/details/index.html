@@ -4,6 +4,10 @@
   layout:decorator="/layout/default"
   layout:fragment="noidung"
 >
+<head>
+  <title>Detail</title>
+  <link th:rel="stylesheet" th:href="@{/css/course.css}">
+</head>
   <nav aria-label="breadcrumb">
     <div class="container-fluid">
       <ol class="breadcrumb bg-white mb-0 py-2">
@@ -16,20 +20,17 @@
   <section class="course-banner">
     <div class="container">
       <div class="banner-content">
-        <h1>Complete Python Bootcamp: Go from zero to hero in Python 3</h1>
-        <h5>
-          Learn Python like a Professional! Start from the basics and go all the way to creating your own
-          applications and games!
-        </h5>
+        <h1 th:inline="text">[[${course.title}]]</h1>
+        <h5 th:inline="text">[[${course.description}]]</h5>
         <h6 class="mt-3">
           <span><i class="fa fa-user m-1"></i> Created by </span>
           <a href="#" class="text-white font-weight-bold mr-4">Lê Quang Song</a>
-          <span><i class="fa fa-calendar-check-o mr-1"></i> Last updated 04/2019</span>
+          <span th:inline="text"><i class="fa fa-calendar-check-o mr-1"></i>[[${#dates.format(course.lastUpdate, 'dd-MM-yyyy')}]]</span>
         </h6>
         <h6 class="mt-3">
-          <span><i class="fa fa-play-circle mr-1"></i> 180 lectures</span>
+          <span th:inline="text"><i class="fa fa-play-circle mr-1"></i>[[${course.lecturesCount}]] lectures</span>
           <span class="mx-1"> | </span>
-          <span><i class="fa fa-clock-o mr-1"></i> 40 hours</span>
+          <span th:inline="text"><i class="fa fa-clock-o mr-1"></i>[[${course.hourCount}]] hours</span>
           <span class="ml-2">with <b class="mx-1">568,171</b> students enrolled</span>
         </h6>
       </div>
@@ -45,46 +46,10 @@
             <h4 class="course-desc-title">What you'll learn</h4>
             <div class="row">
               <div class="col-md-6">
-                <ul class="course-desc-items">
+                <ul class="course-desc-items" th:each="line : ${targets}">
                   <li>
                     <i class="fa fa-check"></i>
-                    <span>Learn to use Python professionally, learning both Python 2 and Python
-                                            3!</span>
-                  </li>
-                  <li>
-                    <i class="fa fa-check"></i>
-                    <span>Create games with Python, like Tic Tac Toe and Blackjack!</span>
-                  </li>
-                  <li>
-                    <i class="fa fa-check"></i>
-                    <span>Learn to use Python professionally, learning both Python 2 and Python
-                                            3!</span>
-                  </li>
-                  <li>
-                    <i class="fa fa-check"></i>
-                    <span>Create games with Python, like Tic Tac Toe and Blackjack!</span>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-md-6">
-                <ul class="course-desc-items">
-                  <li>
-                    <i class="fa fa-check"></i>
-                    <span>Learn to use Python professionally, learning both Python 2 and Python
-                                            3!</span>
-                  </li>
-                  <li>
-                    <i class="fa fa-check"></i>
-                    <span>Create games with Python, like Tic Tac Toe and Blackjack!</span>
-                  </li>
-                  <li>
-                    <i class="fa fa-check"></i>
-                    <span>Learn to use Python professionally, learning both Python 2 and Python
-                                            3!</span>
-                  </li>
-                  <li>
-                    <i class="fa fa-check"></i>
-                    <span>Create games with Python, like Tic Tac Toe and Blackjack!</span>
+                    <span th:inline="text">[[${line}]]</span>
                   </li>
                 </ul>
               </div>
@@ -96,7 +61,7 @@
             <div class="list-header d-flex align-items-center justify-content-between">
               <h4 class="font-weight-bold">Course content</h4>
               <div>
-                <span class="mr-3">180 lectures</span>
+                <span class="mr-3" th:inline="text">[[${course.lecturesCount}]]</span>
               </div>
             </div>
             <div class="mt-2">

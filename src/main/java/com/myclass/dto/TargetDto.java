@@ -1,14 +1,18 @@
 package com.myclass.dto;
 
+import com.myclass.entity.Course;
+
 public class TargetDto {
   private int id;
   private String title;
   private int courseId;
+  private Course course;
 
-  public TargetDto(int id, String title, int courseId) {
+  public TargetDto(int id, String title, int courseId, Course course) {
     this.id = id;
     this.title = title;
     this.courseId = courseId;
+    this.course = course;
   }
 
   public TargetDto() {

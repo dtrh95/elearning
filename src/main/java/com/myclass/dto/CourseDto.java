@@ -52,7 +52,7 @@ public class CourseDto {
     this.category = category;
   }
 
-  public CourseDto(int id, String title, String image, int lecturesCount, int hourCount, int viewCount, int price, int discount, int promotionPrice, String description, String itemDescription, String content, int categoryId, java.sql.Timestamp lastUpdate, Category category) {
+  public CourseDto() {
   }
 
   public int getId() {

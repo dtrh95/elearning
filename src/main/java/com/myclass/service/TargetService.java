@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface TargetService {
   List<TargetDto> findAll();
+  TargetDto findByCourseId(int id);
 }

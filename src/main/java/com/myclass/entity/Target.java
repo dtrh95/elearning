@@ -11,16 +11,17 @@ public class Target {
 
   private String title;
 
+  @Column(name = "course_id")
   private int courseId;
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "category_id", insertable = false, updatable = false)
-  private Category category;
+  @JoinColumn(name = "course_id", insertable = false, updatable = false)
+  private Course course;
 
   public Target(int id, String title, int courseId) {
     this.id = id;
     this.title = title;
-    this.courseId = category.getId();
+    this.courseId = course.getId();
   }
 
   public Target() {
@@ -48,5 +49,9 @@ public class Target {
 
   public void setCourseId(int courseId) {
     this.courseId = courseId;
+  }
+
+  public Course getCourse() {
+    return course;
   }
 }
