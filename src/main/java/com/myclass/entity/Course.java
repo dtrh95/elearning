@@ -50,6 +50,9 @@ public class Course {
   @OneToMany(fetch = FetchType.LAZY)
   List<Target> targets;
 
+  @OneToMany(fetch = FetchType.LAZY)
+  List<Video> videos;
+
   public Course(
     int id,
     String title,
@@ -201,5 +204,11 @@ public class Course {
 
   public void setTargets(List<Target> targets) {
     this.targets = targets;
+  }
+
+  public List<Video> getVideos() {return videos; }
+
+  public void setVideos(List<Video> videos) {
+    this.videos = videos;
   }
 }

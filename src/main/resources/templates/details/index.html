@@ -61,109 +61,21 @@
             <div class="list-header d-flex align-items-center justify-content-between">
               <h4 class="font-weight-bold">Course content</h4>
               <div>
-                <span class="mr-3" th:inline="text">[[${course.lecturesCount}]]</span>
+                <span class="mr-3" th:inline="text">[[${course.lecturesCount}]] lectures</span>
               </div>
             </div>
             <div class="mt-2">
               <a href="#list-content" class="list-content-first" data-toggle="collapse">
                 <span><i class="fa fa-minus mr-1"></i> Course list</span>
-                <span>40:28:55</span>
+                <span th:inline="text">[[${durations / 60}]]:[[${durations % 60}]]</span>
               </a>
-              <ul id="list-content" class="collapse show">
+              <ul id="list-content" class="collapse show" th:each="video : ${videos}">
                 <li>
-                  <a href="#">
-                                        <span> <i class="fa fa-play-circle mr-1"></i>
-                                            Course Introduction
+                  <a th:href="@{${video.url}}">
+                                        <span th:inline="text"> <i class="fa fa-play-circle mr-1"></i>
+                                          [[${video.title}]]
                                         </span>
-                    <span>5:32</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                                        <span> <i class="fa fa-play-circle mr-1"></i>
-                                            Getting the Notebooks and the Course Material
-                                        </span>
-                    <span>15:30</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                                        <span> <i class="fa fa-play-circle mr-1"></i>
-                                            Git and Github Overview (Optional)
-                                        </span>
-                    <span>12:05</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                                        <span> <i class="fa fa-play-circle mr-1"></i>
-                                            Introduction to Python Data Types
-                                        </span>
-                    <span>10:35</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                                        <span> <i class="fa fa-play-circle mr-1"></i>
-                                            Course Introduction
-                                        </span>
-                    <span>5:32</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                                        <span> <i class="fa fa-play-circle mr-1"></i>
-                                            Getting the Notebooks and the Course Material
-                                        </span>
-                    <span>15:30</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                                        <span> <i class="fa fa-play-circle mr-1"></i>
-                                            Git and Github Overview (Optional)
-                                        </span>
-                    <span>12:05</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                                        <span> <i class="fa fa-play-circle mr-1"></i>
-                                            Introduction to Python Data Types
-                                        </span>
-                    <span>10:35</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                                        <span> <i class="fa fa-play-circle mr-1"></i>
-                                            Course Introduction
-                                        </span>
-                    <span>5:32</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                                        <span> <i class="fa fa-play-circle mr-1"></i>
-                                            Getting the Notebooks and the Course Material
-                                        </span>
-                    <span>15:30</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                                        <span> <i class="fa fa-play-circle mr-1"></i>
-                                            Git and Github Overview (Optional)
-                                        </span>
-                    <span>12:05</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                                        <span> <i class="fa fa-play-circle mr-1"></i>
-                                            Introduction to Python Data Types
-                                        </span>
-                    <span>10:35</span>
+                    <span th:inline="text">[[${video.timeCount/60}]]:[[${video.timeCount % 60}]]</span>
                   </a>
                 </li>
               </ul>
